@@ -1,0 +1,19 @@
+repository: sergiomartins8
+
+replicaCount: 1
+namespace: jenkins
+image:
+  pullPolicy: IfNotPresent
+service:
+  name: flask-api-chart
+  type: NodePort
+  externalPort: 8080
+  internalPort: 8080
+  nodePort: 31500
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
