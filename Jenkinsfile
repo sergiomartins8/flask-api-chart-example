@@ -68,11 +68,11 @@ podTemplate(label: "jenkins-slave-base-pod", serviceAccount: "jenkins", containe
                     container.push()
                 }
             }
+            stage("Integration Testing") {
+                echo "integration testing"
+            }
 
             if (env.BRANCH_NAME == 'master') {
-                stage("Integration Testing") {
-                    echo "integration testing"
-                }
                 stage("Deployment") {
                     helmDeploy(dry_run: false, name: chart.name, chart_dir: chart_dir)
                 }
