@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/message')
 def index():
-    return dumps({"message": "w00t"})
+    return dumps({"message": "w00t_v2"})
 
 
 if __name__ == '__main__':
