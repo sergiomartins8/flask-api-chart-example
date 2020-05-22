@@ -26,7 +26,7 @@ def chart
 podTemplate(label: "jenkins-slave-base-pod", serviceAccount: "jenkins", containers: [
         containerTemplate(
                 name: "base",
-                image: "sergiomartins8/jenkins-slave-base:1.0",
+                image: "sergiomartins8/jenkins-slave-base:1.1",
                 ttyEnabled: true,
                 command: "cat"
         )
