@@ -1,13 +1,15 @@
-from json import dumps
-
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 
-@app.route('/message')
-def index():
-    return dumps({"message": "w00t"})
+@app.route('/message/<message_id>', methods=['GET'])
+def get_message(message_id):
+    return jsonify({'message': append_id(message_id)})
+
+
+def append_id(message_id):
+    return f'w00t_{message_id}'
 
 
 if __name__ == '__main__':
