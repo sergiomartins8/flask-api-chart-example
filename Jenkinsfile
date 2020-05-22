@@ -46,7 +46,7 @@ podTemplate(label: "jenkins-slave-base-pod", serviceAccount: "jenkins", containe
             stage("PR Build and Test") {
                 parallel(
                         "Unit Tests": {
-                            sh 'python -m unittest --buffer discover tests/unit'
+                            sh 'python -m unittest --buffer tests/unit'
                         },
                         "SonarQube Alanysis": {
                             echo "sonarqube"
@@ -61,7 +61,7 @@ podTemplate(label: "jenkins-slave-base-pod", serviceAccount: "jenkins", containe
                 )
             }
             stage("Integration Testing") {
-                sh 'python -m unittest --buffer discover tests/integration'
+                sh 'python -m unittest --buffer tests/integration'
             }
             stage("Build && Push Image") {
                 docker.withRegistry("${registry_url}", "${docker_credentials_id}") {
