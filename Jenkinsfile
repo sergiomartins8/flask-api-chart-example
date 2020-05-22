@@ -40,7 +40,7 @@ podTemplate(label: "jenkins-slave-base-pod", serviceAccount: "jenkins", containe
             stage("Checkout") {
                 checkout scm
             }
-            stage("Setup configurations") {
+            stage("Setup") {
                 chart = readYaml(file: "${chart_dir}/Chart.yaml")
                 sh 'pip3 install flask'
             }
