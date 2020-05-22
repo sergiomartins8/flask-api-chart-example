@@ -42,6 +42,7 @@ podTemplate(label: "jenkins-slave-base-pod", serviceAccount: "jenkins", containe
             }
             stage("Setup configurations") {
                 chart = readYaml(file: "${chart_dir}/Chart.yaml")
+                sh 'pip3 install flask'
             }
             stage("PR Build and Test") {
                 parallel(
