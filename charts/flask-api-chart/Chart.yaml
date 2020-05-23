@@ -1,4 +1,4 @@
 apiVersion: v1
 description: Flask api chart example
 name: flask-api-chart
-version: v0.1.1
+version: v0.1
